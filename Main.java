@@ -1,11 +1,10 @@
-import java.io.*;
-
 class Main {
 
   public static void main(String[] args) {
+    
+    Spread mySpread = new Spread(3);
 
-    Card card = new Card();
-    System.out.println(card.getName());
+    for (int i = 0; i < 3)
   }
 }
 
