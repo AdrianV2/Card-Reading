@@ -1,22 +1,33 @@
+import java.util.HashSet;
+
 public class Spread{
   
   private Card[] cardSpread;
   private String[] spotNames;
 
+  // Initialize class
   public Spread(int amount) {
+    setSpread(amount);
+  }
+
+  // Set value for cardSpread and spotNames variables
+  public void setSpread(int amount) {
+
+    cardSpread = new Card[amount];
+    spotNames = new String[amount];
+
+    HashSet<String> nameSet = new HashSet<String>();
 
     for (int i = 0; i < amount; i++) {
 
-      spotNames[i] = "Card " + Integer.toString(i + 1);
-    }
+      Card addToSpread = new Card();
 
-    setSpread();
-  }
+      while (!nameSet.add(addToSpread.getName())) {
+        addToSpread = new Card();
+      }
 
-  public void setSpread() {
-    
-    for (int i = 0; i <= spotNames.length; i++) {
-      cardSpread[i] = new Card();
+      cardSpread[i] = addToSpread;
+      spotNames[i] = "Card " + String.valueOf(i + 1);
     }
   }
 
@@ -24,7 +35,19 @@ public class Spread{
     return cardSpread;
   }
 
+  public Card getOneCard(int index) {
+    return cardSpread[index];
+  }
+
   public String[] getSpotNames() {
     return spotNames;
+  }
+
+  public String getOneSpotName(int index) {
+    return spotNames[index];
+  }
+
+  public void setOneSpotName(int index, String name) {
+    spotNames[index] = name;
   }
 }

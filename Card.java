@@ -5,20 +5,13 @@ public class Card {
   private String name;
   private boolean reversed;
 
+  // Initialize class
   public Card() {
-    name = setCard();
+    setCard();
   }
 
-  public String getName() {
-    return name;
-  }
-
-  public boolean getReversed() {
-    return reversed;
-  }
-
-  //Sets card name
-  public String setCard() {
+  // Set value for name and reversed variables
+  public void setCard() {
 
     double random = Math.random();
     int number = (int)Math.floor(random * 36);
@@ -199,8 +192,14 @@ public class Card {
     if (reversed) {
       name += " Reversed";
     }
+  }
 
+
+  public String getName() {
     return name;
   }
 
+  public boolean getReversed() {
+    return reversed;
+  }
 }
